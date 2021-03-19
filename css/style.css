@@ -1,0 +1,226 @@
+/* 
+ Copyright 2021 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+body {
+  font-size: 1.5rem;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.light {
+  --background: #f3f9ff;
+  --color: #282c34;
+  background: #f3f9ff;
+  color: #282c34;
+}
+
+.dark {
+  --background: #282c34;
+  --color: #f3f9ff;
+  background: #282c34;
+  color: #f3f9ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*
+ * Code Mirror styling 
+ */
+.cm-wrap .cm-content {
+  min-height: 100vh;
+  white-space: pre-wrap;
+}
+
+
+.cm-wrap .cm-gutters {
+  /* This gets added in via inline styles so need !important to override */
+  min-height: 100vh !important;
+}
+
+/*
+ * Install button 
+ */
+#install {
+  background-color:hsl(420, 50%, 50%);
+  border-radius: 50%;
+  border: .25rem solid var(--background);
+  bottom: 1rem;
+  cursor: pointer;
+  height: 3rem;
+  left: 1rem;
+  outline: 0;
+  position: fixed;
+  width: 3rem;
+  z-index: 20;
+  display: none;
+}
+
+#install svg {
+  fill: var(--background);
+}
+
+#install:focus {
+  box-shadow: 0 0 0 2px var(--color);
+}
+
+/*
+ * Actions styling 
+ */
+.actions {
+  bottom: 1rem;
+  position: fixed;
+  right: 1rem;
+  z-index: 20;
+}
+
+.actions--action {
+  align-items: center;
+  background: transparent;
+  border-radius: 50%;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.actions--toggle {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  transition: transform .25s ease-in-out;
+  outline: none;
+  border: 2px solid transparent;
+}
+
+.actions--toggle:focus {
+  border-color: var(--color);
+}
+
+.actions--toggle[aria-expanded='true'] {
+  transform: rotate(45deg);
+}
+
+.actions--icon {
+  border-radius: 50%;
+  cursor: pointer;
+  fill: hsl(175, 50%, 50%);
+  height: 3rem;
+  padding: 0;
+  width: 3rem;
+}
+
+.actions--icon__small {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.actions--menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.actions--menu-item {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transition: transform .25s ease-in-out, opacity .25s ease-in-out;
+  transform: translateY(0) translateX(0) scale(0);
+}
+
+.actions--menu-item:nth-of-type(1) {
+  transition-delay: 0s;
+}
+
+.actions--menu-item:nth-of-type(2) {
+  transition-delay: .05s;
+}
+
+.actions--menu-item:nth-of-type(3) {
+  transition-delay: .1s;
+}
+
+.actions--menu-item:nth-of-type(4) {
+  transition-delay: .15s;
+}
+
+.actions--menu-item:nth-of-type(5) {
+  transition-delay: .2s;
+}
+
+[aria-hidden="false"] .actions--menu-item {
+  opacity: 1;
+}
+
+[aria-hidden="false"] .actions--menu-item:nth-of-type(1) {
+  transform: translateY(-4.75rem) translateX(.75rem);
+}
+
+[aria-hidden="false"] .actions--menu-item:nth-of-type(2) {
+  transform: translateY(-4.5rem) translateX(-1.375rem);
+}
+
+[aria-hidden="false"] .actions--menu-item:nth-of-type(3) {
+  transform: translateY(-3.5rem) translateX(-3.5rem);
+}
+
+[aria-hidden="false"] .actions--menu-item:nth-of-type(4) {
+  transform: translateY(-1.375rem) translateX(-4.5rem);
+}
+
+[aria-hidden="false"] .actions--menu-item:nth-of-type(5) {
+  transform:  translateY(.75rem) translateX(-4.75rem);
+}
+
+/* Night mode toggle */
+#mode {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  height: 1.5rem;
+  padding: 0;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 1.5rem;
+  z-index: 9;
+}
+
+#mode .day {
+  fill: white;
+}
+
+#mode .night {
+  fill: black;
+}
+
+#mode [data-active="false"] {
+  display: block;
+}
+
+#mode [data-active="true"] {
+  display: none;
+}
