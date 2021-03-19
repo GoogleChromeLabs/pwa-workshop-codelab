@@ -78,5 +78,13 @@
         }
       ]
     }
+  ],
+  "file_handlers": [
+    {
+      "action": "/",
+      "accept": {
+        "text/markdown": [".md", ".markdown"]
+      }
+    }
   ]
 }
