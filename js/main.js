@@ -15,6 +15,7 @@
  */
 
 import { openDB } from 'idb';
+import { wrap } from 'comlink';
 
 // Need to use this WMR syntax to properly compile the service worker.
 // If you compile your service worker in another way, you can use the URL to it
@@ -43,6 +44,12 @@ window.addEventListener('DOMContentLoaded', async () => {
     },
   });
 
+  // Set up worker
+  const worker = new SharedWorker('/js/worker.js', {
+    type: 'module',
+  });
+  const compiler = wrap(worker.port);
+
   // Set up the editor
   const { Editor } = await import('./app/editor.js');
   const editor = new Editor(document.body);
@@ -54,6 +61,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // Save content to database on edit
   editor.onUpdate(async (content) => {
     await db.put('settings', content, 'content');
+    await compiler.set(content);
   });
 
   // Set the initial state in the editor
