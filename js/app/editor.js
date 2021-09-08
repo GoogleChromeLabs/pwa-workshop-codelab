@@ -16,7 +16,7 @@
 
 import { EditorState, basicSetup } from '@codemirror/basic-setup';
 import { EditorView, keymap } from '@codemirror/view';
-import { defaultTabBinding } from '@codemirror/commands';
+import { indentWithTab } from '@codemirror/commands';
 import { markdown } from '@codemirror/lang-markdown';
 import { oneDark } from '@codemirror/theme-one-dark';
 
@@ -29,7 +29,7 @@ export class Editor {
 
     this._editor = new EditorView({
       state: EditorState.create({
-        extensions: [basicSetup, keymap.of([defaultTabBinding]), markdown(), oneDark],
+        extensions: [basicSetup, keymap.of([indentWithTab]), markdown(), oneDark],
       }),
       parent,
       dispatch(tr) {
@@ -47,7 +47,7 @@ export class Editor {
   setTheme(mode) {
     const $ = this;
 
-    const extensions = [basicSetup, keymap.of([defaultTabBinding]), markdown()];
+    const extensions = [basicSetup, keymap.of([indentWithTab]), markdown()];
 
     if (mode === 'night') {
       extensions.push(oneDark);
