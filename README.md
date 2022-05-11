@@ -1,4 +1,4 @@
-# PWA Edit
+# PWA Edit - TEST -
 
 PWA Edit is the sample app that you'll build as you complete the [PWA Workshop](https://workshops.page.link/pwa-workshop).
 
