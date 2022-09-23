@@ -148,7 +148,7 @@ export class Actions {
     }
 
     const options = 'menubar=0,toolbar=0,status=0,location=0';
-    const { screens } = await window.getScreens();
+    const { screens } = await window.getScreenDetails();
 
     // Find the primary screen
     const screen = screens.find((s) => s.isPrimary);
@@ -157,7 +157,7 @@ export class Actions {
     const width = screen.availWidth / 2;
 
     // Build a window from the information
-    this.previewWindow = window.open('/preview', 'Markdown preview', `${options},left=${width},top=${screen.availTop},height=${screen.availHeight},width=${width}`);
+    this.previewWindow = window.open('/preview/index.html', 'Markdown preview', `${options},left=${width},top=${screen.availTop},height=${screen.availHeight},width=${width}`);
   }
 
   /**

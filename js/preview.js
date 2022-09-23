@@ -15,7 +15,7 @@
  */
 
 import { openDB } from 'idb';
-import marked from 'marked';
+import { marked } from 'marked';
 
 window.addEventListener('DOMContentLoaded', async () => {
   const preview = document.querySelector('.preview');
