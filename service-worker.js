@@ -21,7 +21,7 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { strategy as streamsStrategy } from 'workbox-streams';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { openDB } from 'idb';
-import marked from 'marked';
+import { marked } from 'marked';
 
 // Set up page cache
 const pageCache = new CacheFirst({
