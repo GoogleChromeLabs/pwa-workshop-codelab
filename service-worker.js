@@ -43,7 +43,7 @@ warmStrategyCache({
 
 // Streaming preview
 registerRoute(
-  ({ url }) => url.pathname === '/preview',
+  ({ url }) => url.pathname === '/preview' || url.pathname === '/preview/index.html',
   streamsStrategy([
     () => `<!DOCTYPE html>
   <html lang="en">
