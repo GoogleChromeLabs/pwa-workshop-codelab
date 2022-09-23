@@ -1,5 +1,5 @@
 /*
- Copyright 2021 Google LLC
+ Copyright 2022 Google LLC
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -13,8 +13,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  */
-import swPlugin from '@wmr-plugins/service-worker/sw-plugin.cjs';
 
-export default function (options) {
-  swPlugin(options);
-}
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  build: {
+    emptyOutDir: false,
+    rollupOptions: {
+      input: {
+        index: resolve(__dirname, 'index.html'),
+        offline: resolve(__dirname, 'offline.html'),
+        'preview/index': resolve(__dirname, 'preview/index.html'),
+      },
+    },
+  },
+});
