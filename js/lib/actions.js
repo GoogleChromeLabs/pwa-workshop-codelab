@@ -148,7 +148,7 @@ export class Actions {
     }
 
     const options = 'menubar=0,toolbar=0,status=0,location=0';
-    const { screens } = await window.getScreens();
+    const { screens } = await window.getScreenDetails();
 
     // Find the primary screen
     const screen = screens.find((s) => s.isPrimary);
