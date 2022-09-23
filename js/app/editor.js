@@ -13,9 +13,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-import {basicSetup} from "codemirror"
+import { basicSetup } from 'codemirror';
 import { EditorView, keymap } from '@codemirror/view';
-import {indentWithTab} from "@codemirror/commands"
+import { indentWithTab } from '@codemirror/commands';
 import { markdown } from '@codemirror/lang-markdown';
 import { oneDark } from '@codemirror/theme-one-dark';
 
@@ -27,12 +27,7 @@ export class Editor {
     const $ = this;
 
     this._editor = new EditorView({
-      extensions: [
-        basicSetup,
-        keymap.of([indentWithTab]),
-        markdown(),
-        oneDark
-      ],
+      extensions: [basicSetup, keymap.of([indentWithTab]), markdown(), oneDark],
       parent,
       dispatch(tr) {
         this.update([tr]);
@@ -49,7 +44,7 @@ export class Editor {
   setTheme(mode) {
     const $ = this;
 
-    const extensions = [basicSetup, keymap.of([defaultTabBinding]), markdown()];
+    const extensions = [basicSetup, keymap.of([indentWithTab]), markdown()];
 
     if (mode === 'night') {
       extensions.push(oneDark);
