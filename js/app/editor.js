@@ -54,7 +54,7 @@ export class Editor {
     this._editor.dom.remove();
 
     this._editor = new EditorView({
-      state: EditorState.create({ extensions }),
+      extensions,
       parent: this._parent,
       dispatch(tr) {
         this.update([tr]);
