@@ -15,7 +15,7 @@
  */
 
 import { expose } from 'comlink';
-import marked from 'marked';
+import { marked } from 'marked';
 
 class Compiler {
   state = {
