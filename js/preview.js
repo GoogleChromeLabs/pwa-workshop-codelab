@@ -19,7 +19,7 @@ import { wrap, proxy } from 'comlink';
 window.addEventListener('DOMContentLoaded', async () => {
   const preview = document.querySelector('.preview');
 
-  const worker = new SharedWorker(new URL('/js/worker.js', import.meta.url), {
+  const worker = new SharedWorker(new URL('./worker.js', import.meta.url), {
     type: 'module',
   });
   const compiler = wrap(worker.port);
