@@ -6,7 +6,7 @@
     "start": "vite",
     "dev": "vite",
     "prebuild": "del-cli dist",
-    "build": "run-p build:*",
+    "build": "aaa build:*",
     "build:project": "vite build",
     "build:sw": "vite build -c vite.sw.config.js",
     "preview": "vite preview"
